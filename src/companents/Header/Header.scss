@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Aubrey&family=Roboto:ital,wght@0,300;0,500;1,300;1,400;1,500;1,900&display=swap');
+
+
+:root {
+  --swiper-theme-color: #BD00FF !important;
+}
+.swiper {
+    width: 100%;
+    height: 80vh;
+    border-radius: 10px;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+  }
+  
+  .autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+  }
+  .autoplay-progress{
+    display: block;
+  }
+  
+  .swiper-button-prev{
+    color: #BD00FF !important;
+  }
+  .swiper-button-next{
+    color: #BD00FF !important;
+  }
+  .swiper-pagination-bullet-active{
+    color: #BD00FF !important;
+  }
+  .inner__newanime{
+    padding: 15px;
+    border-radius: 10px;
+    height: auto;
+    position: absolute;
+    backdrop-filter: blur(4px);
+    background-color: rgba(57, 56, 56, 0.344);
+    width: 40%;
+    .texts{
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      display: block;
+      b{
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+        display: block;
+      }
+      p{
+        font-size: 1rem;
+        font-weight: normal;
+      }
+      
+    }
+    .link_animenews{
+      a{
+        display: block;
+        margin-top: 2rem;
+        padding: 20px 0px;
+        background-color: #BD00FF;
+        color: white;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        border-radius: 30px;
+
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .texts{
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      display: block;
+      b{
+        font-size: 1.2rem !important;
+        margin-bottom: 8px;
+        display: block;
+      }
+      p{
+        font-size: 0.7rem !important;
+        font-weight: 400 !important;
+        font-weight: normal;
+      }
+      
+    }
+    .inner__newanime{
+      padding: 15px;
+      border-radius: 10px;
+      height: auto;
+      position: absolute;
+      backdrop-filter: blur(4px);
+      background-color: rgba(57, 56, 56, 0.344);
+      width: 80% !important;}
+      .swiper {
+        width: 100%;
+        height: 60vh !important;
+        border-radius: 10px;
+
+      }
+      .swiper-button-prev{
+        color: transparent !important;
+      }
+      .swiper-button-next{
+        color: transparent !important;
+      }
+  
+    }

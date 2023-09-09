@@ -1,0 +1,91 @@
+
+.manga {
+  background-color: black;
+  
+
+}
+
+.titu {
+  display: flex;
+  margin:15px;
+  
+  
+}
+
+.geral .capa{
+  width:130px;
+  justify-content: center;
+  align-items:center;
+  border: solid 1.5px #BD00FF;
+  border-radius: 7px;
+  
+}
+
+/* Seu arquivo de estilo .css */
+.botao-redondo {
+  background-color: black; /* Cor de fundo */
+  border: solid 1px #bd00ff; /* Remova a borda */
+  border-radius: 50%; /* Torna o botão redondo */
+  width: 40px; /* Largura */
+  height: 40px; /* Altura */
+  cursor: pointer; /* Altera o cursor ao passar o mouse */
+  font-size: 20px; /* Tamanho do ícone */
+  display: flex; /* Alinha o ícone verticalmente no centro */
+  justify-content: center; /* Alinha o ícone horizontalmente no centro */
+  align-items: center; /* Alinha o ícone verticalmente no centro */
+  color: #bd00ff;
+  
+}
+.b{
+  margin: 10px;
+}
+.botao-redondo:hover {
+  background-color: black; /* Cor de fundo ao passar o mouse */
+  color: #bd00ff;
+}
+
+.botao-redondo i {
+  color: #bd00ff; /* Cor do ícone */
+  
+}
+
+
+.geral h3 {
+  margin: 10px;
+}
+
+a:visited {
+  color: #bd00ff;
+}
+
+a.page-scroll:visited {
+  color: #bd00ff;
+}
+
+.tex {
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  border: solid 1px #bd00ff;
+  margin: 15px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+}
+
+.comentar {
+  margin-top: 50px;
+}
+
+hr {
+  color: #bd00ff;
+}
+
+.bloco {
+  display: block;
+  
+}
+
+.bloco p{
+  margin-top:6px;
+  margin: 10px;
+}

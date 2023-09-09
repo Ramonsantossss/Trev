@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Aubrey&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aubrey&family=Roboto:ital,wght@0,300;0,500;1,300;1,400;1,500;1,900&display=swap');
+// font-family: 'Aubrey', cursive;
+//font-family: 'Roboto', sans-serif;
+
+.navbar {
+  background-color: transparent;
+  padding: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+}
+
+.navbar i {
+  color: #bd00ff;
+  
+}
+
+.navbar a{
+  background-color: rgba(0, 0, 0, 0.0);
+  border-radius: 50%;
+  text-align: center;
+  float: right;
+  margin-right: 7px;
+}
