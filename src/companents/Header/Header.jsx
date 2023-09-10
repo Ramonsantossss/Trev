@@ -63,7 +63,7 @@ function Header() {
                   <p className="animenews__about">{item.description}</p>
                 </div>
                 <div className="link_animenews">
-                  <Link to={item.link}>Watch now</Link>
+                
                 </div>
               </div>
             </SwiperSlide>
