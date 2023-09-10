@@ -41,7 +41,6 @@ function Manga(props) {
       const novoFavorito = {
         id,
         foto,
-        score: score,
         nome: mangaData.name,
         nick: mangaData.url_name,
         ultimoCapituloLido: "",
