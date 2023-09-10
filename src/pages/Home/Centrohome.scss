@@ -28,23 +28,9 @@ h2 {
   margin-top:10px; 
 }
 
-/* Estilizando a barra de rolagem no Chrome e Safari */
-/* Você pode personalizar essas propriedades conforme desejado */
-
-/* Cor da barra de rolagem */
-::-webkit-scrollbar {
-  width: 7px; /* Largura da barra de rolagem */
-}
-
-/* Cor da alça (parte que você pode arrastar) */
-::-webkit-scrollbar-thumb {
+.ul::-webkit-scrollbar-thumb {
   background-color: #bd00ff; /* Cor da alça */
   border-radius: 6px; /* Cantos arredondados da alça */
-}
-
-/* Cor da área da barra de rolagem que não está ocupada pela alça */
-::-webkit-scrollbar-track {
-  background-color: transparent; /* Cor de fundo da área da barra de rolagem */
 }
 
 
