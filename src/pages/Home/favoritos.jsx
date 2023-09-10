@@ -22,6 +22,13 @@ function Favoritos() {
               <li className="li">
                 <div className="foto">
                   <img className="img" src={item.foto} alt={item.nome} />
+    <div className="texxto">
+      <div className="name">
+        <spam className="nota">
+    <i className="fa fa-heart"></i>
+        </spam>
+      </div>
+    </div>
                   <div className="texto">
                     <div className="name">
                       <span>{item.nome}</span>

@@ -35,6 +35,11 @@ function Pesquisa() {
               <div className="li">
                 <div className="footo">
                   <img className="img" src={item.image} alt={item.name} />
+    <div className="texxto">
+      <div className="name">
+        <spam className="nota">{item.score}</spam>
+      </div>
+    </div>
                   <div className="texto">
                     <div className="name">
                       <span>{item.name}</span>

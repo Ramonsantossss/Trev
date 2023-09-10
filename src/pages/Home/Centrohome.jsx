@@ -25,7 +25,7 @@ function Centrohome() {
 
   return (
     <div className="container">
-      <br/>
+      <br/><br/><br/>
       <h2>Novos Capítulos</h2>
       <ul className="ul">
       {mangasPopular.map((item, index) => (
@@ -38,6 +38,11 @@ function Centrohome() {
       <div className="name">
         <span>{item.name}</span>
       </div><br/>
+    </div>
+    <div className="texxto">
+      <div className="name">
+        <spam className="nota">{item.score}</spam>
+      </div>
     </div>
           </div><br/>
         </li>

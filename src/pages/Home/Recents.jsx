@@ -38,6 +38,11 @@ function Recente() {
         <span>{item.name}</span>
       </div><br/>
     </div>
+    <div className="texxto">
+      <div className="name">
+        <spam className="nota">{item.score}</spam>
+      </div>
+    </div>
           </div><br/>
         </li>
         <br/>
