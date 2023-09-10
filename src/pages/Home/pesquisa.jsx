@@ -1,77 +1,54 @@
+// Pesquisa.js
 import React, { useState, useEffect } from 'react';
-import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
-function Pesquisa(props) {
-  const { match, location } = props;
-  //const { id } = match.params;
-  const searchTerm = new URLSearchParams(location.search).get("search");
-  
+function Pesquisa() {
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  
-  // Função para pesquisar mangas na API
-  const pesquisarManga = async () => {
-    try {
-      const response = await fetch(`https://appp--trevodev.repl.co/search?q=${searchTerm}`);
-      if (!response.ok) {
-        throw new Error('Erro ao buscar os dados da API');
-      }
-      const data = await response.json();
-      setSearchResults(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const apiUrl = 'https://appp--trevodev.repl.co/search?q=';
 
   useEffect(() => {
-    if (searchTerm) {
-      pesquisarManga();
-    } else {
+    if (searchTerm.trim() === '') {
       setSearchResults([]);
+      return;
     }
+
+    fetch(apiUrl + searchTerm)
+      .then((response) => response.json())
+      .then((data) => setSearchResults(data.mangas))
+      .catch((error) => console.error(error));
   }, [searchTerm]);
 
-
   return (
-    return (
-   <div className="container">
-   <input
-          type="text"
-          placeholder="Pesquisar manga..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-   />
-      <ul classname="ul">
-     {searchResults.map((item, index) => (
-     <div key={index}>
-      <div className="conteudo" key={item}>
-      <div className="titu">
-       <a href={`/manga/${item.name}/${item.id_serie}?foto=${item.image}`}>
-         <li className="li">
-  
-    <div className="foto">
-      <img className="img" src={item.image} alt={item.name} />
-      <div className="texto">
-      <div className="name">
-        <span>{item.name}</span>
-      </div><br/>
+    <div className="container">
+      <input
+        className="input"
+        type="text"
+        placeholder="Pesquisar manga..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <ul className="uil">
+        {searchResults.map((item, index) => (
+          <li className="conteuudo" key={index}>
+            <Link to={`/manga/${item.name}/${item.id_serie}?foto=${item.image}`}>
+              <div className="li">
+                <div className="footo">
+                  <img className="img" src={item.image} alt={item.name} />
+                  <div className="texto">
+                    <div className="name">
+                      <span>{item.name}</span>
+                    </div>
+                    <div className="ultimo-lido">{/* Aqui você pode adicionar informações se necessário */}</div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
-   </div>        
-      
-           <br/>
-        </li>
-        <br/>
-       </a>
-       </div>
-      
-      
-        </div>
-       </div>
-     ))}
-     </ul>
-     </div> 
-  )
-  )
+  );
 }
 
-export default Pesquisa,
+export default Pesquisa;

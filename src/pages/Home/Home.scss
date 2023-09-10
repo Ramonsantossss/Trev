@@ -3,3 +3,49 @@
     padding: 1rem 1rem 0 1rem;
     background-color: #000; 
 }
+
+.uil {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  
+}
+
+.input {
+  width: 80%;
+  border-radius: 7px;
+  margin: 42px;
+  border: solid 1px #bd00ff; /* Correção na propriedade border */
+  color: white;
+  padding: 7px;
+  font-size: 16px;
+  background-color: black; /* Isso centralizará horizontalmente */
+}
+
+
+@media (min-width: 768px) {
+  .uil {
+    display: grid;
+  grid-template-columns: repeat(6, 0fr);
+  }
+  /* Outros estilos para telas maiores aqui */
+}
+
+.footo {
+  position: relative;
+  width: 123px;
+  border-radius: 7px;
+  border: splid 1px #bd00ff;
+  height: 200px; /* Defina a altura desejada para as imagens */
+  margin: 7px;
+}
+.footo img{
+  border-radius: 7px;
+  border: splid 1px #bd00ff;
+}
+.conteuudo {
+  width: 100%;
+  hidden: auto;
+  display: flex;
+  position: relative;
+}
+
