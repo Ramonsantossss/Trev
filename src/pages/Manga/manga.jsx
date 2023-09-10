@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './manga.scss';
 import DisqusEmbed from './DisqusEmbed';
+import { Link } from "react-router-dom";
 
 function Manga(props) {
   const { match, location } = props;
@@ -113,11 +114,11 @@ function Manga(props) {
           <br/>
           <ul className="caps">
             {mangaData.chapters.map((chapter, index) => (
-<a href={`/ler?idRelease=${chapter.id_release}&idSerie=${id}`} key={index} onClick={() => lerCapitulo(chapter.number)}>
+<Link to={`/ler?idRelease=${chapter.id_release}&idSerie=${id}`} key={index} onClick={() => lerCapitulo(chapter.number)}>
                 <li className="tex">
                   Capítulo {chapter.number} - Data: {chapter.date}
                 </li>
-              </a>
+              </Link>
             ))}
           </ul>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Centrohome.scss";
+import { Link } from "react-router-dom";
 
 function Favoritos() {
   const [favoritos, setFavoritos] = useState([]);
@@ -17,7 +18,7 @@ function Favoritos() {
       <ul className="ul">
         {favoritos.map((item, index) => (
           <div className="conteudo" key={item.id}>
-            <a href={`/manga/${item.nick}/${item.id}?foto=${item.foto}`}>
+            <Link to={`/manga/${item.nick}/${item.id}?foto=${item.foto}`}>
               <li className="li">
                 <div className="foto">
                   <img className="img" src={item.foto} alt={item.nome} />
@@ -31,7 +32,7 @@ function Favoritos() {
                   </div>
                 </div><br/>
               </li>
-            </a>
+            </Link>
           </div>
         ))}
       </ul>

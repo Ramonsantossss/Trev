@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Centrohome.scss";
+import { Link } from "react-router-dom";
 
 function Recente() {
   const [mangasPopular, setMangasPopular] = useState([]);
@@ -28,7 +29,7 @@ function Recente() {
       <ul className="ul">
       {mangasPopular.map((item, index) => (
         <div className="conteudo" key={item}>
-       <a href={`${item.link}?foto=${item.image}`}>
+       <Link to={`${item.link}?foto=${item.image}`}>
          <li className="li">
        <div className="foto">
          <img className="img" src={item.image} alt={item.name} />
@@ -40,7 +41,7 @@ function Recente() {
           </div><br/>
         </li>
         <br/>
-       </a>
+       </Link>
       
       </div>
       
