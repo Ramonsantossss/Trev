@@ -42,7 +42,7 @@ function Favoritos() {
             </Link>
           </div>
         ))}
-      </ul>
+      </ul><br/><br/><br/><br/>
     </div>
   );
 }
