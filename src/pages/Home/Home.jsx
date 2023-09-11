@@ -14,7 +14,7 @@ function Home() {
         <Centrohome />
         <Recente />
         <Favoritos />
-        <Hero />
+    
     </div>
   );
 }
