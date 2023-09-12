@@ -8,12 +8,12 @@ function Centrohome() {
 
   async function fetchData() {
     try {
-      const response = await fetch('https://appp--trevodev.repl.co/recents/1');
+      const response = await fetch('https://appp--trevodev.repl.co/filmes');
       if (!response.ok) {
         throw new Error('Erro ao buscar os dados da API');
       }
       const resultado = await response.json();
-      setMangasPopular(resultado.mangas);
+      setMangasPopular(resultado);
     } catch (error) {
       console.error(error);
     }
@@ -26,24 +26,20 @@ function Centrohome() {
   return (
     <div className="container">
       <br/><br/><br/>
-      <h2>Novos Capítulos</h2>
+      <h2>Filmes</h2>
       <ul className="ul">
       {mangasPopular.map((item, index) => (
         <div className="conteudo" key={item}>
-       <Link to={`${item.link}?foto=${item.image}`}>
+       <Link to={`/manga/${item.category_id}`}>
          <li className="li">
        <div className="foto">
-         <img className="img" src={item.image} alt={item.name} />
+         <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt="foto" />
     <div className="texto">
       <div className="name">
-        <span>{item.name}</span>
+        <span>{item.category_name}</span>
       </div><br/>
     </div>
-    <div className="texxto">
-      <div className="name">
-        <spam className="nota">{item.score}</spam>
-      </div>
-    </div>
+    
           </div><br/>
         </li>
         <br/>

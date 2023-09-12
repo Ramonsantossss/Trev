@@ -6,6 +6,7 @@ import { Heroanime } from "./../../assets/Data.js";
 function Hero() {
   const [visible, setVisible] = useState(8);
   const [viewButton, setViewButton]= useState(true)
+  const [recentemente, setMangasPopular] = useState([])
 
   const ShowMore = () => {
     if(Heroanime.length != visible ){
@@ -16,24 +17,29 @@ function Hero() {
     }
   };
   console.log(Heroanime.length);
+  async function fetchData() {
+    try {
+      const response = await fetch('https://animeland.appanimeplus.tk/videoweb/api.php?action=latestvideos');
+      if (!response.ok) {
+        throw new Error('Erro ao buscar os dados da API');
+      }
+      const resultado = await response.json();
+      setMangasPopular(resultado);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="Hero">
       <div className="hero_wrapper">
-        {Heroanime.slice(0, visible).map((item) => {
-          return (
-            <Link Link to={"/"} className="anime_hero">
-              <img src={item.img_url} alt="" />
-              <div className="heroanime_texts">
-                <div className="heroanime_text">
-                  <span>{item.sifati}</span>
-                  <span>{item.ep}</span>
-                </div>
-                <div className="heroanime_name">
-                  <span>{item.name}</span>
-                </div>
-              </div>
-            </Link>
-          );
+        {recentemente.map((item, index) => {
+        <div key={index}>
+          
+        </div>
         })}
       </div>
       <button onClick={ShowMore} className={Heroanime.length != visible?"Viewmore":"displaynonebutton"}>

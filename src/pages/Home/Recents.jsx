@@ -7,7 +7,7 @@ function Recente() {
 
   async function fetchData() {
     try {
-      const response = await fetch('https://appp--trevodev.repl.co/popular/1');
+      const response = await fetch('https://appp--trevodev.repl.co/tops');
       if (!response.ok) {
         throw new Error('Erro ao buscar os dados da API');
       }
@@ -29,18 +29,18 @@ function Recente() {
       <ul className="ul">
       {mangasPopular.map((item, index) => (
         <div className="conteudo" key={item}>
-       <Link to={`${item.link}?foto=${item.image}`}>
+       <Link to={`/manga/${item.id}`}>
          <li className="li">
        <div className="foto">
-         <img className="img" src={item.image} alt={item.name} />
+         <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt={item.category_name} />
     <div className="texto">
       <div className="name">
-        <span>{item.name}</span>
+        <span>{item.category_name}</span>
       </div><br/>
     </div>
     <div className="texxto">
       <div className="name">
-        <spam className="nota">{item.score}</spam>
+        <spam className="nota">TOP</spam>
       </div>
     </div>
           </div><br/>

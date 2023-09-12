@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import './manga.scss';
-import DisqusEmbed from './DisqusEmbed';
+import React, { useState, useEffect } from "react";
+import './manga.scss'
+import DisqusEmbed from './DisqusEmbed.jsx';
 import { Link } from "react-router-dom";
 
 function Manga(props) {
   const { match, location } = props;
   const { id } = match.params;
-  const foto = new URLSearchParams(location.search).get("foto");
-
-  const [mangaData, setMangaData] = useState(null);
+  const [listaDeEp, setMangasPopular] = useState([]);
+  const [infoAnime, setAnimeInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [favoritos, setFavoritos] = useState([]);
+  const [showVideo, setShowVideo] = useState({ url: "" });
 
   useEffect(() => {
     // Carregar favoritos do localStorage quando o componente é montado
@@ -19,30 +19,15 @@ function Manga(props) {
     setFavoritos(favoritosFromLocalStorage);
   }, []);
 
-  async function fetchData() {
-    try {
-      const response = await fetch(`https://appp--trevodev.repl.co/chapters/${id}`);
-      if (!response.ok) {
-        throw new Error('Erro ao buscar os dados da API');
-      }
-      const data = await response.json();
-      setMangaData(data);
-      setIsLoading(false);
-    } catch (error) {
-      setError(error);
-      setIsLoading(false);
-    }
-  }
-
   const adicionarAosFavoritos = () => {
     // Verifique se o manga já está nos favoritos
     if (!favoritos.find((manga) => manga.id === id)) {
       // Se não estiver, adicione-o aos favoritos com o último capítulo lido vazio
       const novoFavorito = {
         id,
-        foto,
-        nome: mangaData.name,
-        nick: mangaData.url_name,
+        foto: infoAnime.category_icon,
+        nome: infoAnime.category_name,
+        nick: infoAnime.category_name,
         ultimoCapituloLido: "",
       };
       const novosFavoritos = [...favoritos, novoFavorito];
@@ -75,58 +60,91 @@ function Manga(props) {
       localStorage.setItem("favoritos", JSON.stringify(novosFavoritos));
     }
   };
+  
+  async function fetchData() {
+    try {
+      const response = await fetch(`https://appp--trevodev.repl.co/episodios/${id}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar os dados da API');
+      }
+      const resultado = await response.json();
+      setMangasPopular(resultado);
+    } catch (error) {
+      console.error(error);
+      setError(error); // Defina o estado de erro aqui
+      setIsLoading(false); // Defina o estado de carregamento para false em caso de erro
+    }
+  }
+
+  async function AniInfo() {
+    try {
+      const response = await fetch(`https://appp--trevodev.repl.co/anime/${id}`);
+      if (!response.ok) {
+        throw new Error('Erro ao buscar os dados da API');
+      }
+      const resultado = await response.json();
+      setAnimeInfo(resultado);
+    } catch (error) {
+      console.error(error);
+      setError(error); // Defina o estado de erro aqui
+      setIsLoading(false); // Defina o estado de carregamento para false em caso de erro
+    }
+  }
 
   useEffect(() => {
     fetchData();
+    AniInfo();
   }, []);
 
   return (
     <div className="manga">
-      {isLoading && <p>Carregando...</p>}
+      {/*{isLoading && <p>Carregando...</p>}*/}
       {error && <p>Ocorreu um erro: {error.message}</p>}
-      {mangaData && (
-        <div className="geral">
+      
+      {infoAnime.map((item, index) => (
+        <div key={index} className="geral">
           <div className="titu">
-            <img src={foto} alt="Capa do manga" className="capa"/>
+            <img src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} className="capa" />
             <div className="bloco">
-              <h3>{mangaData.name}</h3>
-              <p>• {mangaData.url_name}</p>
-              {/* Botão para Adicionar/Remover dos Favoritos */}
-              <div className="b">
-                {favoritos.find((manga) => manga.id === id) ? (
-                  <button className="botao-redondo" onClick={removerDosFavoritos}>
-                    <i className="fa fa-heart"></i>
-                  </button>
-                ) : (
-                  <button className="botao-redondo" onClick={adicionarAosFavoritos}>
-                    <i className="fa fa-plus"></i>
-                  </button>
-                )}
-              </div>
-              {/* Último Capítulo Lido */}
-              {favoritos.find((manga) => manga.id === id) ? (
-                <p>Visto Recentemente {favoritos.find((manga) => manga.id === id)?.ultimoCapituloLido}</p>
-                ) : (
-                <></>
-                )}   
-           </div>
+              <h3>{item.category_name}</h3>
+              <p>• {item.category_desc}</p>
+            </div>
           </div>
-          <br/>
-          <ul className="caps">
-            {mangaData.chapters.map((chapter, index) => (
-<Link to={`/ler?idRelease=${chapter.id_release}&idSerie=${id}`} key={index} onClick={() => lerCapitulo(chapter.number)}>
-                <li className="tex">
-                  Capítulo {chapter.number} - Data: {chapter.date}
-                </li>
-              </Link>
+          <div className="tags">
+            {infoAnime[0]?.genres.split(', ').map((genre, index) => (
+              <h4 key={index}>{genre}</h4>
             ))}
-          </ul>
+          </div>
         </div>
+      ))}
+   
+      <ul className="caps">
+        {listaDeEp.map((item, index) => (
+          <Link
+            key={index}
+            onClick={() => {
+              setShowVideo({ url: item?.sdlocation || item?.location });
+            }}
+          >
+            <li className="tex">{item.title}</li>
+          </Link>
+        ))}
+      </ul>
+    {showVideo?.url && (
+        <section className="videoSection">
+          <button
+            className="closeButton"
+            onClick={() => setShowVideo({ url: "" })} // Corrigido para setShowVideo({ url: "" })
+          >
+            Voltar
+          </button>
+          <video className="video" src={showVideo?.url} controls />
+          
+        </section>
       )}
-      <hr/><br/><br/>
-      <div className="comentar">
-        <DisqusEmbed />
-      </div>
+      <br/><br/>
+      <DisqusEmbed />
+      <br/><br/><br/>
     </div>
   );
 }

@@ -20,7 +20,7 @@ function Header() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://appp--trevodev.repl.co/popular/1');
+        const response = await fetch('https://appp--trevodev.repl.co/tops');
         if (!response.ok) {
           throw new Error('Erro ao buscar os dados da API');
         }
@@ -53,14 +53,14 @@ function Header() {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        {mangasPopular.slice(0, 5).map((item) => {
+        {mangasPopular.slice(0, 6).map((item) => {
           return (
             <SwiperSlide>
-              <img src={item.image} alt="" />
+              <img src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt="foto" />
               <div className="inner__newanime">
                 <div className="texts">
-                  <b className="animenews__name">{item.name}</b>
-                  <p className="animenews__about">{item.description}</p>
+                  <b className="animenews__name">{item.category_name}</b>
+                  <p className="animenews__about"></p>
                 </div>
                 <div className="link_animenews">
                 

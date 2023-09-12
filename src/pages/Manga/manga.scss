@@ -85,7 +85,60 @@ hr {
   
 }
 
+DisqusEmbed {
+  margin: 20px;
+}
+
 .bloco p{
   margin-top:6px;
   margin: 10px;
+  font-size: 9px;
 }
+
+.tags {
+  display: flex;
+  margin: 10px;
+  overflow-x: auto; /* Adicione esta propriedade para habilitar a rolagem horizontal */
+}
+
+.tags h4 {
+  background-color: #bd00ff;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+
+.videoSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; /* Adicione essa propriedade para ocupar toda a largura */
+  bottom: 0; /* Adicione essa propriedade para ocupar toda a altura */
+  background-color: rgba(26, 26, 26, 0.9);
+  display: flex;
+  justify-content: center; /* Centralize horizontalmente */
+  align-items: center; /* Centralize verticalmente */
+}
+
+.video {
+  width: 100%;
+  height: 80%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 14px;
+  border-radius: 7px;
+  border: splid 1px #bd00ff; /* Cor dourada */
+  background-color: #bd00ff; /* Cor de fundo preta */
+  transition-property: color, background-color;
+  transition-duration: 0.3s;
+}
+
+.closeButton:hover {
+  color: #f2c200; /* Cor dourada mais clara */
+  background-color: #1a1a1a; /* Cor de fundo preta mais clara */
+  position: fixed;
+  }

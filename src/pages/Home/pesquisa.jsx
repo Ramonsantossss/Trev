@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Pesquisa() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const apiUrl = 'https://appp--trevodev.repl.co/search?q=';
+  const apiUrl = 'https://appp--trevodev.repl.co/pesquisar/';
 
   useEffect(() => {
     if (searchTerm.trim() === '') {
@@ -15,7 +15,7 @@ function Pesquisa() {
 
     fetch(apiUrl + searchTerm)
       .then((response) => response.json())
-      .then((data) => setSearchResults(data.mangas))
+      .then((data) => setSearchResults(data))
       .catch((error) => console.error(error));
   }, [searchTerm]);
 
@@ -31,18 +31,13 @@ function Pesquisa() {
       <ul className="uil">
         {searchResults.map((item, index) => (
           <li className="conteuudo" key={index}>
-            <Link to={`/manga/${item.name}/${item.id_serie}?foto=${item.image}`}>
+            <Link to={`/manga/${item.category_id}`}>
               <div className="li">
                 <div className="footo">
-                  <img className="img" src={item.image} alt={item.name} />
-    <div className="texxto">
-      <div className="name">
-        <spam className="nota">{item.score}</spam>
-      </div>
-    </div>
+                  <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt={item.category_name}  />
                   <div className="texto">
                     <div className="name">
-                      <span>{item.name}</span>
+                      <span>{item.category_name}</span>
                     </div>
                     <div className="ultimo-lido">{/* Aqui você pode adicionar informações se necessário */}</div>
                   </div>
