@@ -123,7 +123,7 @@ function Manga(props) {
           <Link
             key={index}
             onClick={() => {
-              setShowVideo({ url: item?.sdlocation || item?.location });
+              setShowVideo({ url: item?.location || item?.sdlocation });
             }}
           >
             <li className="tex">{item.title}</li>
