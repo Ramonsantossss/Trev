@@ -12,8 +12,7 @@
 }
 
 h2 {
-  border: solid 2px #BD00FF;
-  padding: 7px;
+  padding: 10px;
   margin-top: 0px;
   border-radius: 11px 0px 11px 0px;
 }
@@ -64,10 +63,14 @@ h2 {
   padding: 5px;
 }
 
-.texto .name span {
+.texto .name .span {
   vertical-align: top;
+  background-color: rgba(0,0,0,0);
 }
 
+.texto .name {
+  background-color: rgba(0,0,0,0);
+}
 .texxto {
   position: absolute;
   width: 30px;
@@ -85,24 +88,46 @@ h2 {
   padding: 5px;
 }
 
+.texxto .name .span {
+  background-color: rgba(0,0,0,0);
+}
+
+.texxto .name {
+  background-color: rgba(0,0,0,0);
+}
+
 .nota {
   color: white;
 }
 
 .foto {
   position: relative;
-  width: 140px;
-  height: 200px; /* Defina a altura desejada para as imagens */
-  margin: 15px;
+  width: 125px;
+  height: 185px; /* Defina a altura desejada para as imagens */
+  margin: 10px;
+  border-radius: 7px;
 }
 
 img {
   width: 100%;
   height: 100%; /* Certifique-se de que a imagem preencha a altura definida na classe .foto */
   object-fit: cover; /* Controla como a imagem se ajusta à altura e largura definidas */
+  border-radius: 10px;
 }
 
-
-.foto {
-  
+.titulo {
+  display: flex;
 }
+
+.barrinha {
+  width: 1.5px;
+  height: 44px;
+  padding: 1.5px;
+  background-color: #bd00ff;
+  margin: 0 5px; /* Espaçamento reduzido entre a imagem e a barra */
+}
+
+  .nota {
+    background-color: red;
+    padding: 0.4px;
+  }

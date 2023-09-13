@@ -43,7 +43,7 @@ function Navbar() {
 
   return (
     <div className="navbar">
-      <span>Mangás Online</span>
+      <span>Anikit - Animes</span>
       <Link to={`/procurar`}>
         <i className="fa fa-search"></i>
       </Link>

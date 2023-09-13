@@ -11,10 +11,11 @@ function Home() {
   return (
     <div className="Home">
         <Header />
+    <div className="home_com_margens">
         <Centrohome />
         <Recente />
-        <Favoritos />
-    
+        <br/><br/>
+    </div>
     </div>
   );
 }

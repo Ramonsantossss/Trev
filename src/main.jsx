@@ -9,9 +9,9 @@ import { Router } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      
+      <div className="inin">
        <App />
-      
+      </div>
     </BrowserRouter>
   </React.StrictMode>,
 )

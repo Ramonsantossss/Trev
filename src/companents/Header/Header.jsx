@@ -34,6 +34,17 @@ function Header() {
     fetchData(); // Chama a função de busca assim que o componente for montado
   }, []);
 
+
+
+return (
+  <>
+    <img src="https://telegra.ph/file/cda35e989094309d810e0.jpg" className="foto_header" />
+  </>
+);
+
+
+  
+/*
   return (
     <div>
       
@@ -79,6 +90,7 @@ function Header() {
       </Swiper>
     </div>
   );
+  */
 }
 
 export default Header;

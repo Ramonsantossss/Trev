@@ -8,7 +8,7 @@ function Centrohome() {
 
   async function fetchData() {
     try {
-      const response = await fetch('https://appp--trevodev.repl.co/filmes');
+      const response = await fetch('https://appp--trevodev.repl.co/dublados');
       if (!response.ok) {
         throw new Error('Erro ao buscar os dados da API');
       }
@@ -25,8 +25,11 @@ function Centrohome() {
 
   return (
     <div className="container">
-      <br/><br/><br/>
-      <h2>Filmes</h2>
+      <br/><br/>
+      <div className="titulo">
+      <div className="barrinha"></div>
+      <h2>Dublados</h2>
+      </div>
       <ul className="ul">
       {mangasPopular.map((item, index) => (
         <div className="conteudo" key={item}>
@@ -36,7 +39,9 @@ function Centrohome() {
          <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt="foto" />
     <div className="texto">
       <div className="name">
-        <span>{item.category_name}</span>
+        <span className="span">
+          {item.category_name}
+        </span>
       </div><br/>
     </div>
     

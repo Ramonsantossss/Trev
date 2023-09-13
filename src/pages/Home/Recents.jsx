@@ -24,8 +24,11 @@ function Recente() {
 
   return (
     <div className="container">
-      <br/><br/><br/>
+      <br/>
+      <div className="titulo">
+      <div className="barrinha"></div>
       <h2>Populares</h2>
+      </div>
       <ul className="ul">
       {mangasPopular.map((item, index) => (
         <div className="conteudo" key={item}>
@@ -35,7 +38,9 @@ function Recente() {
          <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt={item.category_name} />
     <div className="texto">
       <div className="name">
-        <span>{item.category_name}</span>
+        <span className="span">
+          {item.category_name}
+        </span>
       </div><br/>
     </div>
     <div className="texxto">

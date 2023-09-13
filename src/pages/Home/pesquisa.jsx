@@ -37,7 +37,9 @@ function Pesquisa() {
                   <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt={item.category_name}  />
                   <div className="texto">
                     <div className="name">
-                      <span>{item.category_name}</span>
+                      <span className="span">
+                      {item.category_name}
+                      </span>
                     </div>
                     <div className="ultimo-lido">{/* Aqui você pode adicionar informações se necessário */}</div>
                   </div>
