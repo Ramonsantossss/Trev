@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.scss';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import Pesquisa from '../../pages/Home/pesquisa.jsx'
-   
+
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [showVideo, setShowVideo] = useState(false); // Inicialmente, o vídeo não está visível
 
   // Obtém o histórico de navegação
   const history = useHistory();
@@ -32,7 +32,7 @@ function Navbar() {
 
   useEffect(() => {
     // Verifique se há um termo de pesquisa no URL ao carregar a página
-    const searchParam = new URLSearchParams(location.search).get("search");
+    const searchParam = new URLSearchParams(location.search).get('search');
     if (searchParam) {
       setSearchTerm(searchParam);
       pesquisarManga();
@@ -43,13 +43,27 @@ function Navbar() {
 
   return (
     <div className="navbar">
+      {/* Botão para exibir o vídeo */}
+      <div className="barra">
+      <Link onClick={() => setShowVideo(!showVideo)}>
+        <i className="fas fa-bars"></i>
+      </Link>
+      </div>
       <span>Anikit - Animes</span>
       <Link to={`/procurar`}>
         <i className="fa fa-search"></i>
       </Link>
+      
+
+      {showVideo && (
+        <div>
+        <br/>
+        <hr/>
+        <br/>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Navbar;
-
