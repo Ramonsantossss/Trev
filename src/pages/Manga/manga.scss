@@ -5,15 +5,21 @@
 
 }
 
+
 .titu {
-  display: flex;
-  margin:15px;
-  
-  
+  display: block;
+  margin: 0px;
+  background-color: transparent;
+  background-image: url('https://telegra.ph/file/7cf4624d3907517747d21.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin: 5px;
 }
 
 .geral .capa{
-  width:130px;
+  width: 130px;
   justify-content: center;
   align-items:center;
   border: solid 1.5px #BD00FF;

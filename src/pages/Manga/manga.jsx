@@ -96,11 +96,12 @@ function Manga(props) {
     AniInfo();
   }, []);
 
+  
   return (
     <div className="manga">
       {/*{isLoading && <p>Carregando...</p>}*/}
       {error && <p>Ocorreu um erro: {error.message}</p>}
-      
+<div className="im">    
       {infoAnime.map((item, index) => (
         <div key={index} className="geral">
           <div className="titu">
@@ -117,6 +118,7 @@ function Manga(props) {
           </div>
         </div>
       ))}
+</div>
    
       <ul className="caps">
           <Link
