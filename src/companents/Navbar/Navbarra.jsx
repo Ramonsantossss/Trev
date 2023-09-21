@@ -56,10 +56,8 @@ function Navbar() {
       
 
       {showVideo && (
-        <div>
-        <br/>
-        <hr/>
-        <br/>
+        <div className="quadrado">
+        
         </div>
       )}
     </div>

@@ -101,31 +101,30 @@ function Manga(props) {
       {/*{isLoading && <p>Carregando...</p>}*/}
       {error && <p>Ocorreu um erro: {error.message}</p>}
       
-      {infoAnime.map((item, index) => (
-        <div key={index} className="geral">
-          <div className="titu">
-            <img src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} className="capa" />
-            <div className="bloco">
-              <h3>{item.category_name}</h3>
-              <p>• {item.category_desc}</p>
-            </div>
-          </div>
-          <div className="tags">
-            {infoAnime[0]?.genres.split(', ').map((genre, index) => (
-              <h4 key={index}>{genre}</h4>
-            ))}
-          </div>
-        </div>
-      ))}
-   
       <ul className="caps">
+        {listaDeEp.map((item, index) => (
           <Link
-            to={`/ep/${id}`}
+            key={index}
+            onClick={() => {
+              setShowVideo({ url: item?.sdlocation || item?.location });
+            }}
           >
-            <li className="tex">Lista de episódios</li>
+            <li className="tex">{item.title}</li>
           </Link>
+        ))}
       </ul>
-      
+    {showVideo?.url && (
+        <section className="videoSection">
+          <button
+            className="closeButton"
+            onClick={() => setShowVideo({ url: "" })} // Corrigido para setShowVideo({ url: "" })
+          >
+            Voltar
+          </button>
+          <video className="video" src={showVideo?.url} controls />
+          
+        </section>
+      )}
       <br/><br/>
       <DisqusEmbed />
       <br/><br/><br/>

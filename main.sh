@@ -6,4 +6,4 @@ yarn run dev
 #git branch -M main
 #git commit -m "atualizar"
 #git add .
-#git push 
+#git push
