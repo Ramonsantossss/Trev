@@ -25,36 +25,36 @@ function Centrohome() {
 
   return (
     <div className="container">
-      <br/><br/>
+      <br /><br />
       <div className="titulo">
-      <div className="barrinha"></div>
-      <h2>Dublados</h2>
+        <div className="barrinha"></div>
+        <h2>Dublados</h2>
       </div>
       <ul className="ul">
-      {mangasPopular.map((item, index) => (
-        <div className="conteudo" key={item}>
-       <Link to={`/manga/${item.category_id}`}>
-         <li className="li">
-       <div className="foto">
-         <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt="foto" />
-    <div className="texto">
-      <div className="name">
-        <span className="span">
-          {item.category_name}
-        </span>
-      </div><br/>
-    </div>
-    
-          </div><br/>
-        </li>
-        <br/>
-       </Link>
-      
-      </div>
-      
-      ))}
-      
-      <br/><br/><br/>
+        {mangasPopular.map((item, index) => (
+          <div className="conteudo" key={item}>
+            <Link to={`/manga/${item.category_id}`}>
+              <li className="li">
+                <div className="foto">
+                  <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt="foto" />
+                  <div className="texto">
+                    <div className="name">
+                      <span className="span">
+                        {item.category_name}
+                      </span>
+                    </div><br />
+                  </div>
+
+                </div><br />
+              </li>
+              <br />
+            </Link>
+
+          </div>
+
+        ))}
+
+        <br /><br /><br />
       </ul>
     </div>
   );

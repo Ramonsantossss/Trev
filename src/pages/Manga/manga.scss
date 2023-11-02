@@ -7,7 +7,7 @@
 
 
 .titu {
-  display: block;
+  display: flex;
   margin: 0px;
   background-color: transparent;
   background-image: url('https://telegra.ph/file/7cf4624d3907517747d21.jpg');
@@ -29,7 +29,7 @@
 
 /* Seu arquivo de estilo .css */
 .botao-redondo {
-  background-color: black; /* Cor de fundo */
+  background-color: #bd00ff; /* Cor de fundo */
   border: solid 1px #bd00ff; /* Remova a borda */
   border-radius: 50%; /* Torna o botão redondo */
   width: 40px; /* Largura */
@@ -39,19 +39,19 @@
   display: flex; /* Alinha o ícone verticalmente no centro */
   justify-content: center; /* Alinha o ícone horizontalmente no centro */
   align-items: center; /* Alinha o ícone verticalmente no centro */
-  color: #bd00ff;
-  
+  color: #000000;
+  margin-left: 5px;
 }
 .b{
   margin: 10px;
 }
 .botao-redondo:hover {
-  background-color: black; /* Cor de fundo ao passar o mouse */
-  color: #bd00ff;
+  background-color: #bd00ff; /* Cor de fundo ao passar o mouse */
+  color: rgba(0, 0, 0, 0);
 }
 
 .botao-redondo i {
-  color: #bd00ff; /* Cor do ícone */
+  color: #f2c200; /* Cor do ícone */
   
 }
 

@@ -59,6 +59,7 @@ function Recente() {
       
       <br/><br/><br/>
       </ul>
+      <br/><br/>
     </div>
   );
 }
