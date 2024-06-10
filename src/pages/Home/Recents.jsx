@@ -7,7 +7,7 @@ function Recente() {
 
   async function fetchData() {
     try {
-      const response = await fetch('https://appp--trevodev.repl.co/tops');
+      const response = await fetch('https://api-trevomangas.onrender.com/all');
       if (!response.ok) {
         throw new Error('Erro ao buscar os dados da API');
       }
@@ -35,11 +35,11 @@ function Recente() {
        <Link to={`/manga/${item.id}`}>
          <li className="li">
        <div className="foto">
-         <img className="img" src={`https://cdn.appanimeplus.tk/img/${item.category_icon}`} alt={item.category_name} />
+         <img className="img" src={`${item.coverUrl}`} alt={item.coverUrl} />
     <div className="texto">
       <div className="name">
         <span className="span">
-          {item.category_name}
+          {item.name}
         </span>
       </div><br/>
     </div>
